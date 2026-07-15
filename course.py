@@ -1,39 +1,42 @@
 """
-Course module
-Handles course creation and storage
+Project: Student Course Registration System
+Author: Imran Afick
+Purpose: Defines the Course class used to create and manage courses.
+Date: July 2026
 """
 
-courses = {}
+
+class Course:
+    """
+    Represents a college course.
+
+    Attributes:
+        course_id (str): Unique identifier for the course.
+        name (str): Course name.
+        credits (int): Number of credit hours.
+    """
+
+    def __init__(self, course_id, name, credits):
+        """
+        Initializes a Course object.
+
+        Args:
+            course_id (str): Course identifier.
+            name (str): Course name.
+            credits (int): Credit hours.
+        """
+
+        self.course_id = course_id
+        self.name = name
+        self.credits = credits
 
 
-def add_course():
-    """Add a new course"""
+    def display_info(self):
+        """
+        Displays course information.
+        """
 
-    course_id = input("Course ID (e.g. CSCI101): ")
-    name = input("Course Name: ")
-    credits = input("Credits: ")
-
-    if course_id in courses:
-        print("Course already exists!")
-        return
-
-    courses[course_id] = {
-        "name": name,
-        "credits": credits
-    }
-
-    print("Course added successfully!")
-
-
-def display_courses():
-    """Display all courses"""
-
-    if not courses:
-        print("No courses available.")
-        return
-
-    for course_id, info in courses.items():
         print("\n-------------------")
-        print("Course ID:", course_id)
-        print("Name:", info["name"])
-        print("Credits:", info["credits"])
+        print("Course ID:", self.course_id)
+        print("Name:", self.name)
+        print("Credits:", self.credits)
