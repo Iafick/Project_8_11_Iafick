@@ -7,6 +7,9 @@ exception handling, and automated testing.
 Date: July, 2026
 """
 
+from tokenize import String
+
+from annotationlib import Format
 from student_manager import (
     register_student,
     display_students,
@@ -126,3 +129,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    f = open ("D:/students.txt", "w")
+    print(f.read())
+    f.closed()
+          
+    Format Array to String
+    
+        
