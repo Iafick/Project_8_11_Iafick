@@ -7,8 +7,15 @@ exception handling, and automated testing.
 Date: July, 2026
 """
 
-from student import register_student, display_students, enroll_student, enter_grade
-from course import add_course, display_courses
+from student_manager import (
+    register_student,
+    display_students,
+    enroll_student,
+    add_grade,
+    add_course,
+    display_courses
+)
+
 
 def display_menu():
     """
@@ -29,7 +36,7 @@ def display_menu():
 
 def main():
     """
-    Runs the main program loop and handles user menu selections.
+    Runs the main program loop and handles user choices.
     """
 
     while True:
@@ -39,32 +46,82 @@ def main():
             choice = input("Choose an option: ")
 
             if choice == "1":
-                register_student()
+                student_id = input("Student ID: ")
+                name = input("Student Name: ")
+                major = input("Major: ")
+
+                register_student(
+                    student_id,
+                    name,
+                    major
+                )
+
+                print("Student registered successfully!")
+
 
             elif choice == "2":
                 display_students()
 
+
             elif choice == "3":
-                enroll_student()
+                student_id = input("Student ID: ")
+                course_id = input("Course ID: ")
+
+                enroll_student(
+                    student_id,
+                    course_id
+                )
+
+                print("Student enrolled successfully!")
+
 
             elif choice == "4":
-                enter_grade()
+                student_id = input("Student ID: ")
+                course_id = input("Course ID: ")
+                grade = float(input("Enter Grade (0-100): "))
+
+                add_grade(
+                    student_id,
+                    course_id,
+                    grade
+                )
+
+                print("Grade added successfully!")
+
 
             elif choice == "5":
-                add_course()
+                course_id = input("Course ID: ")
+                name = input("Course Name: ")
+                credits = int(input("Credits: "))
+
+                add_course(
+                    course_id,
+                    name,
+                    credits
+                )
+
+                print("Course added successfully!")
+
 
             elif choice == "6":
                 display_courses()
+
 
             elif choice == "7":
                 print("Goodbye!")
                 break
 
+
             else:
-                print("Invalid option. Please choose a number between 1 and 7.")
+                print("Invalid option. Please select 1-7.")
+
+
+        except ValueError as error:
+            print(f"Invalid input: {error}")
+
 
         except Exception as error:
-            print(f"An error occurred: {error}")
+            print(f"An unexpected error occurred: {error}")
 
 
 if __name__ == "__main__":
