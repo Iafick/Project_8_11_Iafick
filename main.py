@@ -9,7 +9,6 @@ Date: July, 2026
 
 from tokenize import String
 
-from annotationlib import Format
 from student_manager import (
     register_student,
     display_students,
