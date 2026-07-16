@@ -3,8 +3,10 @@ Project: Student Course Registration System
 Author: Imran Afick
 Purpose: Manages student registration, course enrollment,
 and grade operations.
-Date: July,13, 2026
+Date: July 13, 2026
 """
+
+import json
 
 from student import Student
 from course import Course
@@ -108,6 +110,63 @@ def add_grade(student_id, course_id, grade):
         course_id,
         grade
     )
+
+
+
+def save_students():
+    """
+    Saves student information into a JSON file.
+    """
+
+    student_data = []
+
+    for student in students.values():
+
+        student_data.append({
+            "student_id": student.student_id,
+            "name": student.name,
+            "major": student.major,
+            "courses": student.courses
+        })
+
+    with open("students.json", "w") as file:
+        json.dump(
+            student_data,
+            file,
+            indent=4
+        )
+
+
+
+def load_students():
+    """
+    Loads student information from a JSON file.
+
+    Handles missing files without crashing.
+    """
+
+    try:
+
+        with open("students.json", "r") as file:
+            student_data = json.load(file)
+
+
+            for data in student_data:
+
+                student = Student(
+                    data["student_id"],
+                    data["name"],
+                    data["major"]
+                )
+
+                student.courses = data["courses"]
+
+                students[student.student_id] = student
+
+
+    except FileNotFoundError:
+
+        print("No saved student data found.")
 
 
 
