@@ -4,10 +4,8 @@ Author: Imran Afick
 Purpose: A student management system demonstrating functions,
 object-oriented programming, file I/O, JSON persistence,
 exception handling, and automated testing.
-Date: July, 2026
+Date: July,13,7 2026
 """
-
-from tokenize import String
 
 from student_manager import (
     register_student,
@@ -15,7 +13,9 @@ from student_manager import (
     enroll_student,
     add_grade,
     add_course,
-    display_courses
+    display_courses,
+    load_students,
+    save_students
 )
 
 
@@ -40,6 +40,9 @@ def main():
     """
     Runs the main program loop and handles user choices.
     """
+
+    # Load saved student data when the program starts
+    load_students()
 
     while True:
         display_menu()
@@ -110,6 +113,10 @@ def main():
 
 
             elif choice == "7":
+
+                # Save data before closing the program
+                save_students()
+
                 print("Goodbye!")
                 break
 
@@ -124,12 +131,9 @@ def main():
 
         except Exception as error:
             print(f"An unexpected error occurred: {error}")
-            
 
 
 if __name__ == "__main__":
     main()
-    # Program finished
-          
     
         
