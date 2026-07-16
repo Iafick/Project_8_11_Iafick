@@ -125,15 +125,12 @@ def main():
 
         except Exception as error:
             print(f"An unexpected error occurred: {error}")
+            
 
 
 if __name__ == "__main__":
     main()
-
-    f = open ("D:/students.txt", "w")
-    print(f.read())
-    f.closed()
+    # Program finished
           
-    Format Array to String
     
         
