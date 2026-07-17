@@ -1,1 +1,50 @@
-[]
+[
+    {
+        "student_id": "456000",
+        "name": "thom wells",
+        "major": "nursing",
+        "courses": {}
+    },
+    {
+        "student_id": "265948",
+        "name": "gin kaguya",
+        "major": "business",
+        "courses": {}
+    },
+    {
+        "student_id": "156800",
+        "name": "Mark nur",
+        "major": "nursing",
+        "courses": {}
+    },
+    {
+        "student_id": "1256940",
+        "name": "James Brown",
+        "major": "BUsiness",
+        "courses": {}
+    },
+    {
+        "student_id": "1001",
+        "name": "John Smith",
+        "major": "Computer science",
+        "courses": {}
+    },
+    {
+        "student_id": "123456",
+        "name": "James Brown",
+        "major": "Nursing",
+        "courses": {}
+    },
+    {
+        "student_id": "234567",
+        "name": "Jon Dogh",
+        "major": "Business",
+        "courses": {}
+    },
+    {
+        "student_id": "23456",
+        "name": "Skylar Wells",
+        "major": "Nursing",
+        "courses": {}
+    }
+]
